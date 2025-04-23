@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signal Staging Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .form-row { display: flex; gap: 20px; margin-bottom: 15px; }
+    .form-group { flex: 1; }
+    label { display: block; margin-bottom: 5px; }
+    input, select { width: 100%; padding: 8px; box-sizing: border-box; }
+    .btn { padding: 10px 20px; margin: 10px 5px 0 0; }
+    .btn-primary { background-color: #007bff; color: white; border: none; cursor: pointer; }
+    .btn-outline-primary { background-color: transparent; color: #007bff; border: 1px solid #007bff; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Trading Signal Staging Form</h1>
+  <form class="form-horizontal" method="post" action="/submit">
+    <input type="hidden" name="ci_csrf_token" value="">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="category">Category <span class="text-danger">*</span></label>
+        <select id="category" name="category">
+          <option value="">Select Category</option>
+          <option value="1">Forex</option>
+          <option value="2">Crypto</option>
+          <option value="3">Indices</option>
+          <option value="4">Commodities</option>
+          <option value="5">Stocks</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="sub_category">Sub Category <span class="text-danger">*</span></label>
+        <select id="sub_category" name="sub_category">
+          <option value="">Select Sub Category</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="package">Package <span class="text-danger">*</span></label>
+        <select id="package" name="package">
+          <option value="">Select Package</option>
+          <option value="1">Premium</option>
+          <option value="2">Free</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date">Date <span class="text-danger">*</span></label>
+        <input type="date" id="date" name="date" required />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="entry_point">Entry Point <span class="text-danger">*</span></label>
+        <input type="text" id="entry_point" name="entry_point" required />
+      </div>
+      <div class="form-group">
+        <label for="stop_loss">Stop Loss <span class="text-danger">*</span></label>
+        <input type="text" id="stop_loss" name="stop_loss" required />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="take_profit">Take Profit <span class="text-danger">*</span></label>
+        <input type="text" id="take_profit" name="take_profit" required />
+      </div>
+      <div class="form-group">
+        <label for="action">Action <span class="text-danger">*</span></label>
+        <select id="action" name="action" required>
+          <option value="">--Action--</option>
+          <option value="BUY">BUY</option>
+          <option value="SELL">SELL</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="reset" class="btn btn-outline-primary">Reset</button>
+  </form>
+</body>
+</html>
